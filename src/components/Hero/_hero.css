@@ -1,0 +1,4 @@
+.hero {
+  background: pink;
+  height: min(1080px, 100vh)
+}

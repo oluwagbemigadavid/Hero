@@ -1,0 +1,25 @@
+.square {
+  svg {
+    rect {
+    fill: rgba(255, 255, 255, 0.09);
+    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); 
+    }
+  }
+  .square-middle {
+    background: rgba(255, 255, 255, 0.09);
+    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); 
+  }
+  
+  .square-bg {
+    opacity: 0.5;
+    transition: opacity 0.35s linear;
+  }
+  .square-bg-not-active {
+    opacity: 0;
+    transition: opacity 0.35s linear;
+  }
+ }
