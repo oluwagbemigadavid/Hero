@@ -1,0 +1,36 @@
+.custom-text {
+  .container {
+    animation: shift-down .15s ease-in forwards;
+    height: 40px;
+    h1 {
+      transform: translateY(-105%);
+      opacity: 0;
+      animation: appear-slide-down .95s ease-in forwards;
+    }
+
+    .reverse {
+      animation: appear-slide-down-reverse .75s ease-in forwards !important;
+    }
+  }
+
+  .custom-text-sm {
+    height: 24px;
+    h1 {
+      font-size: 16px;
+    }
+  }
+
+  .custom-text-md {
+    height: 30px;
+    h1 {
+      font-size: 20px;
+    }
+  }
+  .custom-text-xl {
+    height: 44px;
+    h1 {
+      font-size: 40px;
+      line-height: 42px;
+    }
+  }
+}

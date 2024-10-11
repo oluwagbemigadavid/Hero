@@ -7,7 +7,7 @@ const Nav = () => {
   const { activeMenu } = useNav()
   
   return (
-    <div className="absolute top-0 left-0 w-full">
+    <div className="nav absolute top-0 left-0 w-full z-[999]">
         <Header menu={menuList} />
         <SideBar activeNav={activeMenu} />
     </div>

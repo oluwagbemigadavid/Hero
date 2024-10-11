@@ -6,10 +6,9 @@ const MainLayout = ({children}) => {
   const {activeMenu, setActiveMenu} = useNav()
   
   return (
-    <div>
-      <div className="m-[24px] relative">
-        <div className="absolute top-0 left-0 w-full h-full">
-          
+    <div className='main realtive w-full h-full overflow-hidden'>
+      <div className="main-container m-[24px] relative" >
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none"> 
           <svg 
               xmlns="http://www.w3.org/2000/svg" 
               viewBox="0 0 100 100" 
@@ -27,11 +26,11 @@ const MainLayout = ({children}) => {
                   </g>
                 </mask>
               </defs>
-              <rect width="100%" height="100%" mask="url(#hex)" fill='#32313090' rx="5"/>
+              <rect width="100%" height="100%" mask="url(#hex)" fill='#323130' rx="2"/>
             </svg>
         </div>
         <Nav />
-        <div className="py-[120px] pl-[200px] rounded-lg">
+        <div className="relative pt-[132px] pl-[200px] rounded-lg z-10 overflow-hidden">
           {children}
         </div>
       </div>

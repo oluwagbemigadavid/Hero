@@ -1,0 +1,33 @@
+
+.nav {
+  .header {
+    .logo {
+      transform: translateY(-105%);
+      opacity: 0;
+      animation: appear-slide-down 1s ease-in 0.35s forwards;
+    }
+    .menu {
+      transform: translateY(-105%);
+      opacity: 0;
+      animation: appear-slide-down .95s ease-in 0.45s forwards;
+    }
+    .request-btn {
+      transform: translateY(-105%);
+      opacity: 0;
+      animation: appear-slide-down 1s ease-in 0.5s forwards;
+      svg {
+        rect {
+        fill: rgba(255, 255, 255, 1);
+        }
+      }
+      .square-middle {
+        background: rgb(255, 255, 255);
+      }
+      
+      .square-bg {
+        opacity: 1;
+        transition: opacity 0.35s linear;
+      }
+    }
+  }
+}

@@ -1,4 +1,6 @@
 @import url('./tailwind.css');
 @import url('./base.css');
+@import url('./_keyframes.css');
 
 @import url('../components/_index.css');
+@import url('../layout/_index.css');

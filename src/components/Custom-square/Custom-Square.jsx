@@ -46,7 +46,7 @@ const CustomSquare = ({ className, gap, children, nav, refProp, style, onClick }
                   </g>
                 </mask>
               </defs>
-              <rect width="100%" height="100%" mask="url(#hex)" fill='blue'/>
+              <rect width="100%" height="100%" mask="url(#hex)"  />
             </svg>
       </div>
       <div className="w-full h-full square-middle relative">
@@ -70,7 +70,7 @@ const CustomSquare = ({ className, gap, children, nav, refProp, style, onClick }
                   </g>
                 </mask>
               </defs>
-              <rect width="100%" height="100%" mask="url(#hex)" fill='blue'/>
+              <rect width="100%" height="100%" mask="url(#hex)"  />
             </svg>
       </div>
 
