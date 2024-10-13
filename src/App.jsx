@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 function App() {
   // const [count, setCount] = useState(0)
-  const {activeMenu } = useNav()
+  const {activeMenu, request } = useNav()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {

@@ -1,5 +1,22 @@
 .main {
+  width: calc(100vw + 500px);
+  overflow: hidden;
   .main-container {
     animation: slide-in .5s linear;
+    transform: translateX(-548px);
+    transition: transform .5s linear;
+    
+    .main-overlay {
+      background: brown;
+      z-index: 100;
+    }
+  }
+  .main-request {
+    animation: request .5s ease-in;
+    transform: translateX(0px); 
+    transition: transform 1.5s ease-out;
+  }
+  .main-contents {
+    width: calc(100vw - 24px);
   }
 }

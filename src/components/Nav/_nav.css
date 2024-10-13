@@ -4,17 +4,17 @@
     .logo {
       transform: translateY(-105%);
       opacity: 0;
-      animation: appear-slide-down 1s ease-in 0.35s forwards;
+      animation: appear-slide-down 1s ease-in 0.15s forwards;
     }
     .menu {
       transform: translateY(-105%);
       opacity: 0;
-      animation: appear-slide-down .95s ease-in 0.45s forwards;
+      animation: appear-slide-down .95s ease-in 0.25s forwards;
     }
     .request-btn {
       transform: translateY(-105%);
       opacity: 0;
-      animation: appear-slide-down 1s ease-in 0.5s forwards;
+      animation: appear-slide-down 1s ease-in 0.35s forwards;
       svg {
         rect {
         fill: rgba(255, 255, 255, 1);
@@ -28,6 +28,14 @@
         opacity: 1;
         transition: opacity 0.35s linear;
       }
+    }
+  }
+  .sidebar .custom-text .container  {
+    h1 {
+      animation-delay: 1s !important;
+    }
+    .reverse {
+      animation-delay: 0s !important;
     }
   }
 }

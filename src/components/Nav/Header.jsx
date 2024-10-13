@@ -8,7 +8,7 @@ const Header = ({menu}) => {
   const menuRefs = useRef(menu.map(() => React.createRef()));
   const [menuWidths, setMenuWidths] = useState([]);
   const [currentMenuWidth, setCurrentMenuWidth] = useState({})
-  const {activeMenu, setActiveMenu, setNavSwitch} = useNav()
+  const {activeMenu, setActiveMenu, setNavSwitch, request, setRequest} = useNav()
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -41,6 +41,11 @@ const Header = ({menu}) => {
     setTimeout(() => {
       setLoading(false)
     }, 1500);
+  }
+
+  const handleRequest = () => {
+    setRequest(true)
+    console.log(request)
   }
 
   return (
@@ -76,7 +81,7 @@ const Header = ({menu}) => {
         ))}
       </CustomSquare>
 
-      <CustomSquare className={'request-btn flex text-black items-center'} gap='gap-[24px]'>
+      <CustomSquare className={'request-btn flex text-black items-center'}  onClick={handleRequest} gap='gap-[24px]'>
         <p className="text-center font-semibold">Request</p>
         <p className="text-center text-xl font-heavy">&rarr;</p>
       </CustomSquare>

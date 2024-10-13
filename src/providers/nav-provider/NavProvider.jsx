@@ -8,6 +8,7 @@ const NavContext = React.createContext(initialState)
 const NavProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(initialState.activemenu)
   const [navSwitch, setNavSwitch] = useState(false)
+  const [request, setRequest] = useState(false)
 
   useEffect(() => {
     if(navSwitch) {
@@ -19,7 +20,14 @@ const NavProvider = ({ children }) => {
   
 
   return (
-    <NavContext.Provider value={{activeMenu, setActiveMenu, navSwitch, setNavSwitch}}>
+    <NavContext.Provider value={{
+      activeMenu, 
+      setActiveMenu, 
+      navSwitch, 
+      setNavSwitch,
+      request,
+      setRequest
+      }}>
       {children}
     </NavContext.Provider>
   )
