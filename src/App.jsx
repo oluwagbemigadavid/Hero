@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 function App() {
   // const [count, setCount] = useState(0)
-  const {activeMenu, request } = useNav()
+  const {activeMenu } = useNav()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <MainLayout>
-      <div className="w-full h-full hero">
+      <div className="w-full h-full hero relative">
         {/* <Login /> */}
        {!loading && (activeMenu.value === 'home' ?  <HERO /> :activeMenu.value === 'about' ?  <ABOUT /> : <></>)} 
       </div>

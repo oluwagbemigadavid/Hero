@@ -4,3 +4,7 @@
 @import url('./Nav/_nav.css');
 @import url('./Custom-Text/_custom_text.css');
 
+.register {
+    height: min(1212px, 100vh);
+}
+
