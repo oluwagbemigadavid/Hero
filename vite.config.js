@@ -11,7 +11,7 @@ export default ({
     glsl()
   ],
   root: 'src/',
-  publidDir: "../public/",
+  publicDir: "../public/",
   base: './',
   server: {
     host: true,

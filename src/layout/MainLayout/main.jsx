@@ -1,21 +1,23 @@
 import React, { useEffect } from 'react'
-import { Nav, Register } from '../../components'
+import { CarModel, Experience, Nav, Register } from '../../components'
 import { useNav } from '../../providers'
 import clsx from 'clsx'
+import { Canvas } from '@react-three/fiber'
+import { Leva } from 'leva'
 
 const MainLayout = ({children}) => {
   const {request} = useNav()
   
   return (
     <div className={clsx(
-      'main realtive w-full h-screen transition duration-[1000ms] overflow-hidden ',
+      'main realtive w-full h-screen transition duration-[1000ms]',
       {
        'bg-[#00000070]': request,
        'bg-[#00000000]': !request
       }
      )}>
       <div className= {clsx(
-        "main-container m-[24px] relative w-full  flex gap-[48px]",
+        "main-container py-[24px] mx-[24px] relative w-full  flex gap-[48px]",
         {
          'main-request': request,
          'main-not-request': !request
@@ -69,7 +71,24 @@ const MainLayout = ({children}) => {
               </svg>
         </div>
           <Nav />
-          <div className="relative pt-[132px] pl-[200px] rounded-lg z-10 overflow-hidden">
+          <div className="w-full absolute h-screen flex items-center z-100 justify-center">
+          <div className=" canvas w-[100%] h-[100%]">
+            <Canvas
+              flat
+              camera={ {
+                  fov: 45,
+                  near: 0.1,
+                  far: 200,
+                  position: [ 1, 2, 6 ]
+              } }
+              >
+
+                <Experience />
+              </Canvas>
+                  <Leva />
+          </div>
+          </div>
+          <div className="relative pt-[132px] pl-[200px] z-10 rounded-lg  overflow-hidden">
             {children}
           </div>
        </div>
