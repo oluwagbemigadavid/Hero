@@ -1,5 +1,6 @@
 .hero {
-  height: min(1080px, 100vh);
+  height: calc(100vh - 156px);
+  max-height: 1024px;
 
   .home {
     width: calc(100% + 180px);

@@ -9,7 +9,7 @@ export default function Experience()
 
     return <>
 
-        <Perf position="bottom-right" />
+        {/* <Perf position="bottom-right" /> */}
 
         <OrbitControls makeDefault />
 

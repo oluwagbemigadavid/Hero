@@ -36,7 +36,7 @@ const Car = () => {
   const { scale, positionX, positionY, positionZ, rotationX, rotationY, rotationZ } = useControls({
     scale:
     {
-        value: 0.94,
+        value: 1.32,
         min: - 0,
         max: 3,
         step: 0.0001
@@ -44,44 +44,44 @@ const Car = () => {
     positionX:
     {
         value: 0.11,
-        min: - 10,
-        max: 10,
-        step: 0.001
+        min: - 3,
+        max: 3,
+        step: 0.0001
     },
     positionY:
     {
         value: 0.19,
-        min: - 10,
-        max: 10,
-        step: 0.001
+        min: - 3,
+        max: 3,
+        step: 0.0001
     },
     positionZ:
     {
         value: 0.37,
-        min: - 10,
-        max: 10,
-        step: 0.001
+        min: - 3,
+        max: 3,
+        step: 0.0001
     },
     rotationX:
     {
-        value: -1.45,
-        min: - 10,
-        max: 10,
-        step: 0.001
+        value: -1.9,
+        min: - 3,
+        max: 3,
+        step: 0.0001
     },
     rotationY:
     {
-        value: -4.88,
-        min: - 10,
-        max: 10,
-        step: 0.001
+        value: 3.09,
+        min: - 6,
+        max: 6,
+        step: 0.0001
     },
     rotationZ:
     {
-        value: 0.56,
-        min: - 10,
-        max: 10,
-        step: 0.001
+        value: -0.12,
+        min: - 3,
+        max: 3,
+        step: 0.0001
     },
    
 })
