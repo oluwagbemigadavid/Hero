@@ -53,4 +53,11 @@
       animation: grow-appear-reverse .75s ease-in forwards !important;
     }
   }
+  .about {
+    .card {
+      .text {
+        animation: appear-slide-up 1s ease-in
+      }
+    }
+  }
 }

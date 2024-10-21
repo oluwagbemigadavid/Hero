@@ -50,7 +50,7 @@ const Car = () => {
     },
     positionY:
     {
-        value: 0.19,
+        value: 0.20,
         min: - 3,
         max: 3,
         step: 0.0001
@@ -64,7 +64,7 @@ const Car = () => {
     },
     rotationX:
     {
-        value: -1.9,
+        value: -1.93,
         min: - 3,
         max: 3,
         step: 0.0001
@@ -86,12 +86,16 @@ const Car = () => {
    
 })
 
+  // useFrame((state, delta) => {
+  //   console.log(state, delta, carRef)
+  // })
+
   const car = useGLTF('./ds.glb')
   // console.log(car)
   const { nodes, materials } = useGLTF('./ds.glb')
   return (
     <group dispose={null}>
-      <group position={[ positionX, positionY, positionZ]} rotation={[rotationX, rotationY, rotationZ]} scale={scale}>
+      <group position={[ positionX, positionY, positionZ]} rotation={[rotationX, rotationY, rotationZ]} scale={scale} ref={carRef}>
         <group position={[-0.113, -1.818, -0.543]} rotation={[Math.PI / 2, 0, Math.PI / 2]}>
           <mesh
             castShadow

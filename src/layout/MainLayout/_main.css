@@ -1,7 +1,6 @@
 .main {
   .main-container {
-    animation: slide-in .5s linear;
-    /* overflow: hidden; */
+    overflow: hidden;
     width: calc(100vw + 500px);
   }
   .main-not-request {
@@ -15,6 +14,12 @@
     transition: transform 1.5s ease-out;
   }
   .main-contents {
+    animation: slide-in 0.5s linear !important;
     width: calc(100vw - 24px);
+
+    .canvas  canvas{
+      opacity: 0;
+      animation: appear-car 1s ease-in 0.5s forwards;
+    }
   }
 }
