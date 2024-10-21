@@ -5,6 +5,7 @@
 @import url('./Custom-Text/_custom_text.css');
 
 .register {
-    height: min(1212px, 100vh);
+    height: calc(100vh - 40px);
+    max-height: 1024px;
 }
 

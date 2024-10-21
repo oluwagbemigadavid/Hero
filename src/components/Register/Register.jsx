@@ -46,7 +46,7 @@ const Register = ({className}) => {
             <path id="corner-register" d="M -2 -2 L 6 -2 Q 0 0 -2 6 Z" />
             <path id="corner-register1" d="M -2 -2 L 6 -4.1 Q 0 0 -4 7 Z" />
             <mask id="hex-register">
-              <path d="M 0 0 L 65 0 L 100 12 L 100 100 L 0 100 Z" fill="white"/>
+              <path d="M 0 0 L 65 0 L 100 15 L 100 100 L 0 100 Z" fill="white"/>
               <g fill="black">
                 <use transform="translate(64.8 -0.5) rotate(56.8)" href="#corner-register1" />
                 <use transform="translate(99 11.5) rotate(90)" href="#corner-register" />

@@ -30,34 +30,35 @@ const MainLayout = ({children}) => {
        )}>
         <Register />
        <div className="w-full h-full relative main-contents">
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none"> <svg 
-  xmlns="http://www.w3.org/2000/svg" 
-  viewBox="0 0 100 100" 
-  width="100%" 
-  height="100%" 
-  preserveAspectRatio="none"
->
-  <defs>
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+           <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 100 100" 
+            width="100%" 
+            height="100%" 
+            preserveAspectRatio="none"
+          >
+            <defs>
 
-    <path id="main-corner" d="M -2 -2 L 6 -2 Q 0 0 -2 6 Z" />
-    <mask id="hex">
-      <path d="M 0 0 L 100 0 L 100 100 L 25 100 L 0 75 Z" fill="white" />
-      <g fill="black">
-        <use transform="translate(-0.8 74.8) rotate(-68)" href="#main-corner" />
-        <use transform="translate(25 100.5) rotate(-113)" href="#main-corner" />
-      </g>
-    </mask>
-
-
-    <radialGradient id="radial-gradient" cx="50%" cy="50%" r="50%">
-      <stop offset="47%" stop-color="rgba(19,126,57,1)" />
-      <stop offset="97%" stop-color="rgba(8,65,91,1)" />
-    </radialGradient>
-  </defs>
+              <path id="main-corner" d="M -2 -2 L 6 -2 Q 0 0 -2 6 Z" />
+              <mask id="hex">
+                <path d="M 0 0 L 100 0 L 100 100 L 25 100 L 0 75 Z" fill="white" />
+                <g fill="black">
+                  <use transform="translate(-0.8 74.8) rotate(-68)" href="#main-corner" />
+                  <use transform="translate(25 100.5) rotate(-113)" href="#main-corner" />
+                </g>
+              </mask>
 
 
-  <rect width="100%" height="100%" mask="url(#hex)" fill="url(#radial-gradient)" rx="2"/>
-</svg>
+              <radialGradient id="radial-gradient" cx="50%" cy="50%" r="50%">
+                <stop offset="47%" stopColor="rgba(19,126,57,1)" />
+                <stop offset="97%" stopColor="rgba(8,65,91,1)" />
+              </radialGradient>
+            </defs>
+
+
+            <rect width="100%" height="100%" mask="url(#hex)" fill="url(#radial-gradient)" rx="2"/>
+          </svg>
 
         </div>
         <div className={clsx(

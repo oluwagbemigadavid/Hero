@@ -52,8 +52,8 @@ const About = () => {
                       strokeWidth="1" 
                       strokeLinejoin="round" 
                       fill="none" 
-                      stroke-dasharray="500"  
-                      stroke-dashoffset="500"
+                      strokeDasharray="500"  
+                      strokeDashoffset="500" 
                     >
                       <animate 
                         attributeName="stroke-dashoffset"
