@@ -8,7 +8,7 @@ const Header = ({menu}) => {
   const menuRefs = useRef(menu.map(() => React.createRef()));
   const [menuWidths, setMenuWidths] = useState([]);
   const [currentMenuWidth, setCurrentMenuWidth] = useState({})
-  const {activeMenu, setActiveMenu, setNavSwitch, request, setRequest} = useNav()
+  const {activeMenu, setActiveMenu, setNavSwitch, setIsFromNav, request, setRequest} = useNav()
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -31,6 +31,7 @@ const Header = ({menu}) => {
     if(val.value === activeMenu.value) return
     setLoading(true)
     setNavSwitch(true)
+    setIsFromNav(true)
     let active = menuWidths.find(item => item.name === val.name)
     setCurrentMenuWidth(active)
     

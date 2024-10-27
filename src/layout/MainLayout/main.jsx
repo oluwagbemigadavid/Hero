@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { CarModel, Experience, Nav, Register } from '../../components'
 import { useNav } from '../../providers'
 import clsx from 'clsx'
-import { Canvas } from '@react-three/fiber'
-import { Leva } from 'leva'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Leva, useControls } from 'leva'
 import * as THREE from 'three';
 
 
@@ -11,8 +11,53 @@ import { ACESFilmicToneMapping, sRGBEncoding } from 'three';
 
 
 const MainLayout = ({children}) => {
+
   const {request} = useNav()
-  
+  const cameraRef = useRef();
+  const [isParallax, setIsParallax] = useState(false)
+  const mousePosition = useRef({ x: 0, y: 0 })
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  })
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      mousePosition.current = {
+        x: (e.clientX / window.innerWidth) * 2 - 1,
+        y: -(e.clientY / window.innerHeight) * 2 + 1
+      }
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [])
+
+  const { x, y, z } = useControls({
+    x: { value: 1, min: -12, max: 12, step: 0.0001 },
+    y: { value: 2, min: -12, max: 12, step: 0.0001 },
+    z: { value: 6, min: -12, max: 12, step: 0.0001 }
+  })
+
+  const DynamicCamera = () => {
+    const { camera } = useThree()  
+    const parallaxMultiplier = 1 
+
+    useFrame(() => {
+      if (cameraRef.current) {
+        camera.position.x = x + mousePosition.current.x * parallaxMultiplier
+        camera.position.y = y + mousePosition.current.y * parallaxMultiplier
+        camera.position.z = z
+        camera.lookAt(0, 0, 0)
+      }
+    })
+    return null
+  }
+
+
+
   return (
     <div className={clsx(
       'main realtive w-full h-screen transition duration-[1000ms]',
@@ -91,17 +136,19 @@ const MainLayout = ({children}) => {
               <Canvas
                 flat
                 gl={{
-                  outputEncoding: sRGBEncoding,   // Ensure output uses sRGB encoding
-                  toneMapping: ACESFilmicToneMapping,  // Set tone mapping for better color rendering
-                  toneMappingExposure: 1.0  // Adjust exposure for brightness (1.0 is default)
+                  outputEncoding: sRGBEncoding,
+                  toneMapping: ACESFilmicToneMapping,
+                  toneMappingExposure: 1.0
                 }}
                 camera={ {
                     fov: 45,
                     near: 0.1,
                     far: 200,
-                    position: [ 1, 2, 6 ]
+                    position: [ x, y, z ]
                 } }
                 >
+                <perspectiveCamera ref={cameraRef} />
+                {isParallax && <DynamicCamera />}
                   <Experience />
                 </Canvas>
                     <Leva collapsed />

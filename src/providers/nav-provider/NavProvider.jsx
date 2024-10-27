@@ -1,7 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { menuList } from "../../utils";
 
-export const initialState = {activemenu: menuList[0], setActiveMenu: (_) => {}}
+export const initialState = {activemenu:
+  {
+    name: '',
+    value: ''
+  }, setActiveMenu: (_) => {}}
 
 const NavContext = React.createContext(initialState)
 
@@ -9,11 +13,13 @@ const NavProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(initialState.activemenu)
   const [navSwitch, setNavSwitch] = useState(false)
   const [request, setRequest] = useState(false)
+  const [isFromNav, setIsFromNav] = useState(false)
 
   useEffect(() => {
     if(navSwitch) {
       setTimeout(() => {
         setNavSwitch(false)
+        setIsFromNav(false)
       }, 1200);
     }
   }, [activeMenu, navSwitch])
@@ -26,7 +32,9 @@ const NavProvider = ({ children }) => {
       navSwitch, 
       setNavSwitch,
       request,
-      setRequest
+      setRequest,
+      isFromNav,
+      setIsFromNav
       }}>
       {children}
     </NavContext.Provider>
