@@ -25,6 +25,18 @@ const Header = ({menu}) => {
     if(!menuWidths) return;
     setCurrentMenuWidth(menuWidths[0])
   }, [menuWidths])
+
+  useEffect(() => {
+    setLoading(true)
+
+    let active = menuWidths.find(item => item.name === activeMenu.name)
+    setCurrentMenuWidth(active)
+
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500);
+  }, [activeMenu])
+  
   
   const handleMenuClick = (val) => {
     if(loading) return

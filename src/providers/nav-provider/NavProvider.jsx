@@ -19,6 +19,7 @@ const NavProvider = ({ children }) => {
     if(navSwitch) {
       setTimeout(() => {
         setNavSwitch(false)
+        setIsFromNav(false)
       }, 1200);
     }
   }, [activeMenu, navSwitch])
