@@ -3,8 +3,8 @@ import { menuList } from "../../utils";
 
 export const initialState = {activemenu:
   {
-    name: '',
-    value: ''
+    name: 'Home',
+    value: 'home'
   }, setActiveMenu: (_) => {}}
 
 const NavContext = React.createContext(initialState)
@@ -19,7 +19,6 @@ const NavProvider = ({ children }) => {
     if(navSwitch) {
       setTimeout(() => {
         setNavSwitch(false)
-        setIsFromNav(false)
       }, 1200);
     }
   }, [activeMenu, navSwitch])
