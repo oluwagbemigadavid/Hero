@@ -52,7 +52,7 @@ function App() {
     };
   }, [lastLoggedScroll, scrollLock]);
 
-  useEffect(() => {
+ /*  useEffect(() => {
     
     const handleScroll1 = () => {
       console.log(window.scrollY)
@@ -63,7 +63,7 @@ function App() {
       window.removeEventListener('scroll', handleScroll1);
     };
   
-  }, [])
+  }, []) */
   
 
   useEffect(() => {
