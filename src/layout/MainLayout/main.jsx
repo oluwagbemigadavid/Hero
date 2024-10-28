@@ -12,7 +12,7 @@ import { ACESFilmicToneMapping, sRGBEncoding } from 'three';
 
 const MainLayout = ({children}) => {
 
-  const {request} = useNav()
+  const {activeMenu, request} = useNav()
   const cameraRef = useRef();
   const [isParallax, setIsParallax] = useState(false)
   const mousePosition = useRef({ x: 0, y: 0 })
@@ -154,7 +154,8 @@ const MainLayout = ({children}) => {
                     <Leva collapsed />
             </div>
           </div>
-          <div className="relative pt-[132px] pl-[200px] z-10 rounded-lg  overflow-hidden">
+          <div className={clsx("relative pt-[132px] pl-[200px] z-10 rounded-lg  overflow-hidden",
+          {'pointer-events-none': activeMenu.value === 'features'})}>
             {children}
           </div>
        </div>
