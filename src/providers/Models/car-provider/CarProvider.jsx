@@ -17,11 +17,14 @@ const CarProvider = ({ children }) => {
       z: 2.002
     },
   })
+  const [feature, setFeature] = useState('none')
 
   return(
     <CarContext.Provider value={{
       params, 
-      setParams
+      setParams,
+      feature,
+      setFeature,
     }}>
       {children}
     </CarContext.Provider>

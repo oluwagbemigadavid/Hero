@@ -1,5 +1,5 @@
 import { MainLayout } from './layout';
-import { ABOUT, HERO } from './components';
+import { ABOUT, FEATURES, HERO } from './components';
 import { useNav } from './providers';
 import { useEffect, useRef, useState } from 'react';
 import { menuList } from './utils';
@@ -110,6 +110,7 @@ function App() {
             {!loading && (
               activeMenu.value === 'home' ? <HERO /> :
               activeMenu.value === 'about' ? <ABOUT /> :
+              activeMenu.value === 'features' ? <FEATURES /> :
               null 
             )}
           </div>

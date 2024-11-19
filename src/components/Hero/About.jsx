@@ -7,9 +7,9 @@ const About = () => {
   const { activeMenu, navSwitch } = useNav();
   const currentView = activeMenu.value === 'about';
   const cardData = [
-    { title: 'US', content: 'Lorem ipsum dolor sit amet sicing elit. Cupiditate, ab illo! Iusto eius temporibus nobis quos sint voluptas, quibusdam, fuga magnam voluptatibus repellat porro laudantium obcaecati, sit fugit minus illum.', id: 1 },
-    { title: 'Our Products', content: 'Lorem ipsum dolor sit amet sicing elit. Cupiditate, ab illo! Iusto eius temporibus nobis quos sint voluptas, quibusdam, fuga magnam voluptatibus repellat porro laudantium obcaecati, sit fugit minus illum.', id: 2 },
-    { title: 'Our Company', content: 'Lorem ipsum dolor sit amet sicing elit. Cupiditate, ab illo! Iusto eius temporibus nobis quos sint voluptas, quibusdam, fuga magnam voluptatibus repellat porro laudantium obcaecati, sit fugit minus illum.', id: 3 },
+    { title: 'US', content: 'NEXA was founded with a singular vision: to empower users with safe and seamless access to digital financial tools. Our team of dedicated professionals combines expertise in finance, technology, and design to deliver cutting-edge solutions that bridge the gap between traditional and digital finance.', id: 1 },
+    { title: 'Our Products', content: 'At NEXA, our product suite is designed to simplify the complexities of digital currency transactions. From mobile wallets to enterprise-grade digital currency solutions, each product is crafted with precision to meet the needs of both consumers and businesses, ensuring security, stability, and ease of use.', id: 2 },
+    { title: 'Our Company', content: 'NEXA operates with a commitment to transparency, security, and innovation. Our corporate culture emphasizes integrity, collaboration, and a relentless pursuit of excellence. We believe that through the responsible development of CBDC, we can create a more inclusive and resilient financial future for everyone.', id: 3 },
   ];
 
   const [cardAnimations, setCardAnimations] = useState([false, false, false]);

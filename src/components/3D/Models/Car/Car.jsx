@@ -4,35 +4,13 @@ import { useControls } from 'leva'
 import React, { useEffect, useRef, useState } from 'react'
 import { useLoader } from '@react-three/fiber'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
-import { useCar } from '../../../../providers'
+import { useCar, useNav } from '../../../../providers'
+import * as THREE from 'three';
 
-const Car = () => { 
-  /* const fox = useGLTF('./Fox/glTF-Binary/Fox.glb')
-  console.log(fox) 
-  const animations = useAnimations(fox.animations, fox.scene)
-  const {mode} = useControls("fox", {
-    mode: {
-      options: animations.names
-    }
-  })
-  console.log(fox)
+const Car = () => {  
 
-  useEffect(() => {
-    const action = animations.actions[mode]
-    action.reset().fadeIn(0.5).play()
-    
-    return () => {
-      action.fadeOut(0.5)
-      }
-      }, [mode])
-      useFrame((state, delta) => {
-        // foxRef.current.position.z += delta 
-        })
-        console.log(animations) */
-        
-  const carRef = useRef()
-  const {params, setParams} = useCar()
  
+
   const { scale, positionX, positionY, positionZ, rotationX, rotationY, rotationZ } = useControls({
     scale:
     {
@@ -51,21 +29,21 @@ const Car = () => {
     positionY:
     {
         value: 0.20,
-        min: - 3,
+        min: - 9,
         max: 3,
         step: 0.0001
     },
     positionZ:
     {
         value: 0.37,
-        min: - 3,
+        min: - 9,
         max: 3,
         step: 0.0001
     },
     rotationX:
     {
         value: -1.93,
-        min: - 3,
+        min: -9,
         max: 3,
         step: 0.0001
     },
@@ -80,15 +58,72 @@ const Car = () => {
     {
         value: -0.12,
         min: - 3,
-        max: 3,
+        max: 6,
         step: 0.0001
     },
    
 })
 
-  // useFrame((state, delta) => {
-  //   console.log(state, delta, carRef)
-  // })
+  const {activeMenu, navSwitch, toNav} = useNav()
+  const [shouldAnimate, setShouldAnimate] = useState(true);
+  const [isFeatures, SetisFeatures] = useState(activeMenu.value === 'features')
+  const carRef = useRef()
+  const {params, setParams} = useCar()
+
+  useEffect(() => { 
+    if(navSwitch){
+      setShouldAnimate(true); 
+    }
+   
+    const timeout = setTimeout(() => {
+      setShouldAnimate(false);
+    }, 3000);
+  
+    return () => clearTimeout(timeout);  
+  }, [navSwitch]);
+
+  const targetValues = {
+    home: {
+      position: new THREE.Vector3(0.11, 0.20, 0.37),
+      rotation: new THREE.Euler(-1.93, 3.09, -0.12),
+      scale: 1.32,
+    },
+    about: {
+      position: new THREE.Vector3(0.11, 0.20, -1.92),
+      rotation: new THREE.Euler(-1.70, 3.09, 3.03),
+      scale: 1.32,
+    },
+    features: {
+      position: new THREE.Vector3(0.11, 0.20, -1.92),
+      rotation: new THREE.Euler(-1.93, 3.09, 1.58),
+      scale: 0.88,
+    },
+    'how-to-use': {
+      position: new THREE.Vector3(0.11, 0.20, 0.37),
+      rotation: new THREE.Euler(-1.93, 3.09, -0.12),
+      scale: 1.32,
+    },
+  };
+
+  useFrame((_, delta) => {
+    if (!shouldAnimate || !carRef.current) return;
+
+    const target = targetValues[toNav];
+    const current = carRef.current;
+
+    // Smoothly interpolate position
+    current.position.lerp(target.position, delta * 2);
+
+    // Smoothly interpolate rotation (uses SLERP for quaternions)
+    const currentQuat = new THREE.Quaternion().setFromEuler(current.rotation);
+    const targetQuat = new THREE.Quaternion().setFromEuler(target.rotation);
+    currentQuat.slerp(targetQuat, delta * 2);
+    current.rotation.setFromQuaternion(currentQuat);
+
+    // Smoothly interpolate scale
+    current.scale.lerp(new THREE.Vector3(target.scale, target.scale, target.scale), delta * 2);
+  });
+
 
   const car = useGLTF('./ds.glb')
   // console.log(car)

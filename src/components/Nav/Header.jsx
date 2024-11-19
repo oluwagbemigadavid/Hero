@@ -8,7 +8,7 @@ const Header = ({menu}) => {
   const menuRefs = useRef(menu.map(() => React.createRef()));
   const [menuWidths, setMenuWidths] = useState([]);
   const [currentMenuWidth, setCurrentMenuWidth] = useState({})
-  const {activeMenu, setActiveMenu, setNavSwitch, isFromNav, setIsFromNav, request, setRequest} = useNav()
+  const {activeMenu, setActiveMenu, setNavSwitch, isFromNav, setIsFromNav, request, setRequest, setToNav} = useNav()
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -48,6 +48,7 @@ const Header = ({menu}) => {
     setIsFromNav(true)
     let active = menuWidths.find(item => item.name === val.name)
     setCurrentMenuWidth(active)
+    setToNav(val.value)
     
     
     setTimeout(() => {
@@ -67,7 +68,7 @@ const Header = ({menu}) => {
     <div className='header relative flex justify-between items-center w-full h-[100px] px-[40px] my-[16px] overflow-hidden '>
       <div className="h-[50px] overflow-hidden cursor-pointer">
         <h1 className="text-4xl font-bold logo">
-          ABCD
+          NEXA
         </h1>
       </div>
 

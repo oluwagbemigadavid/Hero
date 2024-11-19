@@ -11,7 +11,7 @@ export default function Experience()
 
         {/* <Perf position="bottom-right" /> */}
 
-        <OrbitControls makeDefault />
+        <OrbitControls makeDefault  enabled={false}  />
 
         <directionalLight castShadow position={ [ 1, 2, 3 ] } intensity={ 1.5 } shadow-normalBias= {0.04} />
         <ambientLight intensity={ 0.5 } />
@@ -19,7 +19,7 @@ export default function Experience()
         <Suspense
             fallback={<Placeholder position-y={0.5} scale={[2,3,2]} />}
         >
-            <CarModel scale={15} />
+            <CarModel scale={1} />
         </Suspense>
 
     </>

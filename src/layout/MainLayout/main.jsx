@@ -151,7 +151,7 @@ const MainLayout = ({children}) => {
                 {isParallax && <DynamicCamera />}
                   <Experience />
                 </Canvas>
-                    <Leva collapsed />
+                    {/* <Leva collapsed /> */}
             </div>
           </div>
           <div className={clsx("relative pt-[132px] pl-[200px] z-10 rounded-lg  overflow-hidden",

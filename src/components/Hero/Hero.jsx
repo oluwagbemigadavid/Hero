@@ -9,7 +9,7 @@ const Hero = () => {
   const currentView = activeMenu.value === 'home'
   
 
-  const ABCDis = [
+  const NEXAis = [
     'Innovation, ',
     'Friendly, Stable,',
     'Accessible,'
@@ -18,7 +18,7 @@ const Hero = () => {
   const title = [
     'A new level of,',
     'free automation,',
-    'with ABCD,'
+    'with NEXA,'
   ]
 
   
@@ -28,11 +28,11 @@ const Hero = () => {
 
         <div className={clsx("relative top-[60%] flex row-1", {'reverse': navSwitch})}>
           <div className={clsx("w-fit pt-[24px] pr-[40px] title", {'reverse': navSwitch})}>
-            <CoolText size={'sm'} className={clsx('text-3xl font-bold')} data={['ABCD is']}  currentView={currentView}  />
+            <CoolText size={'sm'} className={clsx('text-3xl font-bold')} data={['NEXA is']}  currentView={currentView}  />
           </div>
 
           <div className="pt-[24px] pl-[40px]">
-            <CoolText size={'md'} className={clsx('text-3xl font-bold')} data={ABCDis}  currentView={currentView} />
+            <CoolText size={'md'} className={clsx('text-3xl font-bold')} data={NEXAis}  currentView={currentView} />
           </div>
         </div>
 
@@ -89,8 +89,8 @@ const Hero = () => {
                     </g>
                   </svg>
                   </div>
-                  <p className="text-[20px] font-semibold">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus perferendis aspernatur
+                  <p className="text-[16px] font-semibold">
+                  Stay tuned as we prepare your secure and seamless digital experience with NEXA. Innovation and reliability are at the core of every transaction, and we’re committed to empowering you with the future of currency.
                   </p>
                 </div>
 
